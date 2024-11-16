@@ -1,0 +1,42 @@
+﻿ How to run gene diversifier
+ The author
+  v1: 14:59 2024/6/13
+  v2: 23:45 2024/10/27
+
+ 1. introduction
+ This app takes amino acid sequence (starting from M) of the gene to be optimized as input. It can produce degenerate encoding DNA sequences in the specified expression hosts (E.coli BL21(DE3), CHO, human cells, and mouse). The number of the degenerate sequences, and the usage of synonymous codon are definable.
+
+ 2. installation
+ The script was written in Python2.7. The easy way to get things ready is to create a python env.
+`conda env create -f geneopt.yml`
+
+3. modifications
+ 3.1 change the line `import RNA` to  `import rna`
+ 3.2 in the rna package, 
+    In file: `$HOME/miniforge3/envs/sd2/lib/python2.7/site-packages/rna/log.py`, 
+    In line: `def timeit(msg="No Description", log=None, precision=1) > None:`
+    Change it to `def timeit(msg="No Description", log=None, precision=1):`
+
+ 4.  run
+   `conda activate geneopt`
+   `python2 sequenceDiversifier.py`
+    (1) input the amino acid sequence (starting from M) and enter;
+    (2) input the number of sequences to be generated;
+    (3) select eco, cho, mouse, or human;
+    (4) input the RSCU(min)
+    (5) input the RSCU(min)-AT
+    (6) results are stored in codingSequenceVariants.csv
+ 5. extension
+    (1) more csv files can be created to expand its usage: download from https://www.genscript.com/tools/codon-frequency-table; create csv files by following the method reported in https://doi.org/10.1093/nar/gkab1214;
+    (2) when the csv files are ready, add lines in sequenceDiversifier.py:
+
+      `if host == ‘eco’:`
+
+        `path = ‘eco_codon_usage.csv’`
+
+      `if host == ‘yeast’:`
+
+        `path = ‘yeast_codon_usage.csv’`
+
+   (3) get the csv file for a sequenced species with genomic data, use `to_get_codon_usage_table.py`;
+   (4) the tool can also be helpful: https://jamiemcgowan.ie/bioinf/codon_usage.html](https://jamiemcgowan.ie/bioinf/codon_usage.html) 
