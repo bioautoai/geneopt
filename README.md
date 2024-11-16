@@ -6,7 +6,7 @@
 # (3) VERY IMPORTANT! change the line `import RNA` to `import rna`in sequenceDiversifier.py;
 # (4) VERY IMPORTANT! change the line `def timeit(msg="No Description", log=None, precision=1) > None:`
 #                     to `def timeit(msg="No Description", log=None, precision=1):`In file: `$HOME/miniforge3/envs/geneopt/lib/python2.7/site-packages/rna/log.py`; 
-# (5) (OPTIONAL) define the encoding to show non-English characters, or just change the letter to "o" (sorry to the author!) at $HOME/miniforge3/envs/geneopt/lib/python2.7/site-packages/rna/__init__.py;
+# (5) (OPTIONAL) define the encoding to show non-English characters, or just change the letter to "o" (sorry to the author!) at $HOME/miniforge3/envs/geneopt/lib/python2.7/site-packages/rna/\__init\__.py;
 # (6) added a more detailed  instruction file
 
 ## The original README file
